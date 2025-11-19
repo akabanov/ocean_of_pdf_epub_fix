@@ -1,23 +1,16 @@
-# Ocean of PDF EPUB fixer
+# ocean_of_pdf_epub_fix
 
-## Purpose
+A new Flutter project.
 
-This repository contains a script to fix the EPUB files loaded from the
-[Ocean of PDF](https://oceanofpdf.com/) website.
+## Getting Started
 
-The main issue with the books is that the text is too dense,
-and e-readers, such as Kobo, ignore line spacing user setting.
+This project is a starting point for a Flutter application.
 
-## Usage
+A few resources to get you started if this is your first Flutter project:
 
-Put the script on your PATH and run it as:
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-```shell
-fix-oceanofpdf.sh [directory]
-```
-
-The directory is optional and defaults to the current directory.
-It can be absolute or relative to the current directory.
-
-The script creates new EPUB files in the 'fixed' subdirectory of the original
-directory.
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

@@ -1,0 +1,16 @@
+# toml
+[build]
+publish = "build/web"
+command = "bash scripts/ci-build-web-release.sh"
+
+# Single Page App (SPA) fallback so Flutter routing works on refresh / deep links
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+# Don't cache the app shell so updates roll out immediately
+[[headers]]
+for = "/index.html"
+[headers.values]
+Cache-Control = "no-cache, no-store, must-revalidate"
