@@ -1,11 +1,11 @@
 {
-  "name": "EPUB Formatting Liberator",
-  "short_name": "EPUB Fixer",
+  "name": "EPUB Liberator",
+  "short_name": "EPUB Liberator",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#F9F7F2",
   "theme_color": "#8A9A5B",
-  "description": "Unlocks line spacing, text alignment, and font size settings in EPUBs for Kobo.",
+  "description": "Liberates line spacing, text alignment, and font size settings in EPUBs for Kobo.",
   "icons": [
     {
       "src": "icons/icon-192.png",
