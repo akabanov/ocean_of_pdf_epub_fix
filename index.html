@@ -473,11 +473,18 @@
         // The total time we want the user to wait (for ads) - 6 seconds
         const fakeDuration = 6000;
 
+        let failed = false;
+
         // Animation Loop for Progress Bar
         const animateProgress = new Promise((resolve) => {
             let start = null;
 
             function step(timestamp) {
+                if (failed) {
+                    resolve();
+                    return
+                }
+
                 if (!start) start = timestamp;
                 const progress = timestamp - start;
                 const percentage = Math.min((progress / fakeDuration) * 100, 99); // go to 99%
@@ -566,6 +573,7 @@
                 }
                 return zip;
             } catch (e) {
+                failed = true;
                 console.error(e);
                 // noinspection JSUnresolvedReference
                 if (typeof gtag === 'function') {
@@ -584,8 +592,15 @@
         // Wait for BOTH the fake timer and the real work
         const [_, processedZip] = await Promise.all([animateProgress, fileProcessing]);
 
+        progressBar.style.width = '100%';
+        // Reset UI after short delay
+        setTimeout(() => {
+            progressContainer.style.display = 'none';
+            dropZone.style.display = 'block';
+            statusText.innerText = "Waiting for file...";
+        }, 2000);
+
         if (processedZip) {
-            progressBar.style.width = '100%';
             statusText.innerText = "Done! Downloading...";
 
             // Generate download
@@ -623,6 +638,8 @@
                     'option_ocean': document.getElementById('fix-ocean').checked,
                 });
             }
+        } else {
+            statusText.innerText = "Failed.";
         }
     }
 </script>
