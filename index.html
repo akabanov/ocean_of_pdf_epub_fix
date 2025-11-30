@@ -567,6 +567,18 @@
     }
 
     async function processEpub(file) {
+        // Get user preferences
+        const fixLineHeight = document.getElementById('fix-line-height').checked;
+        const fixAlign = document.getElementById('fix-align').checked;
+        const fixFontSize = document.getElementById('fix-fontsize').checked;
+        const fixOcean = document.getElementById('fix-ocean').checked;
+
+        const nothingToDo = !(fixLineHeight || fixAlign || fixFontSize || fixOcean);
+        if (nothingToDo) {
+            alert("Nothing to do here.\nTry enabling some fixing options.");
+            return;
+        }
+
         const zip = new JSZip();
 
         // The total time we want the user to wait (for ads) - 6 seconds
@@ -608,12 +620,6 @@
         const fileProcessing = (async () => {
             try {
                 const contents = await zip.loadAsync(file);
-
-                // Get user preferences
-                const fixLineHeight = document.getElementById('fix-line-height').checked;
-                const fixAlign = document.getElementById('fix-align').checked;
-                const fixFontSize = document.getElementById('fix-fontsize').checked;
-                const fixOcean = document.getElementById('fix-ocean').checked;
 
                 // Iterate over files
                 for (const [filename, zipEntry] of Object.entries(contents.files)) {
