@@ -307,17 +307,37 @@
             padding: 16px;
             box-shadow: 0 2px 8px rgba(0,0,0,.04);
             transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+            cursor: pointer; /* make whole card feel clickable */
         }
 
-        .resource-card:hover,
-        .resource-card:focus-within {
+        .resource-card:hover {
             border-color: var(--primary-sage);
         }
 
-        .site-title {
+        .site-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px;
             margin: 0 0 6px 0;
+        }
+
+        .site-title {
+            margin: 0;
             font-size: 1.05rem;
             color: var(--text-dark);
+        }
+
+        .site-link {
+            color: var(--accent-orange-pop);
+            text-decoration: none;
+            font-size: .9rem;
+            white-space: nowrap;
+        }
+
+        .site-link:hover,
+        .site-link:focus {
+            text-decoration: underline;
         }
 
         .site-tagline {
@@ -598,50 +618,86 @@
     <div class="links-section" aria-labelledby="free-epub-heading">
         <h3 id="free-epub-heading">Free EPUB Books</h3>
         <p class="links-intro">
-            Here are some places to download <strong>free EPUB books</strong>
+            Here are some places to <strong>download free EPUB books</strong>
             — from carefully produced public domain editions to publisher‑approved freebies and library lending.
             Most are DRM‑free and play nicely with popular e‑readers and reading apps.
         </p>
 
         <ul class="resource-cards">
-            <li class="resource-card">
-                <h4 class="site-title">Project Gutenberg</h4>
+            <li class="resource-card" role="link" tabindex="0">
+                <div class="site-head">
+                    <h4 class="site-title">Project Gutenberg</h4>
+                    <a class="site-link" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Project Gutenberg (opens in a new tab)">Visit site</a>
+                </div>
                 <div class="site-tagline">Public-domain EPUB classics</div>
                 <p class="site-desc">70,000+ classics in tidy EPUB. Legal, timeless, and pleasantly free of pop‑ups.</p>
-                <a class="card-link" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Project Gutenberg (opens in a new tab)">Visit site</a>
             </li>
-            <li class="resource-card">
-                <h4 class="site-title">Standard Ebooks</h4>
+            <li class="resource-card" role="link" tabindex="0">
+                <div class="site-head">
+                    <h4 class="site-title">Standard Ebooks</h4>
+                    <a class="site-link" href="https://standardebooks.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Standard Ebooks (opens in a new tab)">Visit site</a>
+                </div>
                 <div class="site-tagline">Beautifully formatted, proofread</div>
                 <p class="site-desc">Hand‑crafted editions. Like Gutenberg, but ironed, lint‑rolled, and wearing a bow tie.</p>
-                <a class="card-link" href="https://standardebooks.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Standard Ebooks (opens in a new tab)">Visit site</a>
             </li>
-            <li class="resource-card">
-                <h4 class="site-title">ManyBooks</h4>
+            <li class="resource-card" role="link" tabindex="0">
+                <div class="site-head">
+                    <h4 class="site-title">ManyBooks</h4>
+                    <a class="site-link" href="https://manybooks.net/" target="_blank" rel="noopener noreferrer" aria-label="Visit ManyBooks (opens in a new tab)">Visit site</a>
+                </div>
                 <div class="site-tagline">Large free catalog</div>
                 <p class="site-desc">Public‑domain and indie titles. Some gems, some… character building. All EPUB‑friendly.</p>
-                <a class="card-link" href="https://manybooks.net/" target="_blank" rel="noopener noreferrer" aria-label="Visit ManyBooks (opens in a new tab)">Visit site</a>
             </li>
-            <li class="resource-card">
-                <h4 class="site-title">epubBooks</h4>
+            <li class="resource-card" role="link" tabindex="0">
+                <div class="site-head">
+                    <h4 class="site-title">epubBooks</h4>
+                    <a class="site-link" href="https://www.epubbooks.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit epubBooks (opens in a new tab)">Visit site</a>
+                </div>
                 <div class="site-tagline">Curated free classics</div>
                 <p class="site-desc">Clean layouts, easy downloads, zero drama. Your e‑reader will send a thank‑you note.</p>
-                <a class="card-link" href="https://www.epubbooks.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit epubBooks (opens in a new tab)">Visit site</a>
             </li>
-            <li class="resource-card">
-                <h4 class="site-title">Baen Free Library</h4>
+            <li class="resource-card" role="link" tabindex="0">
+                <div class="site-head">
+                    <h4 class="site-title">Baen Free Library</h4>
+                    <a class="site-link" href="https://www.baen.com/allbooks/category/index/id/2012" target="_blank" rel="noopener noreferrer" aria-label="Visit Baen Free Library (opens in a new tab)">Visit site</a>
+                </div>
                 <div class="site-tagline">Free SF/F from the publisher</div>
                 <p class="site-desc">Spaceships, sorcery, and snark. DRM‑free EPUBs straight from the publisher. Pew pew.</p>
-                <a class="card-link" href="https://www.baen.com/allbooks/category/index/id/2012" target="_blank" rel="noopener noreferrer" aria-label="Visit Baen Free Library (opens in a new tab)">Visit site</a>
             </li>
-            <li class="resource-card">
-                <h4 class="site-title">Open Library</h4>
+            <li class="resource-card" role="link" tabindex="0">
+                <div class="site-head">
+                    <h4 class="site-title">Open Library</h4>
+                    <a class="site-link" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Open Library (opens in a new tab)">Visit site</a>
+                </div>
                 <div class="site-tagline">Borrow ebooks online</div>
                 <p class="site-desc">Millions of books to borrow. Think library card, but on your couch. Procrastination guaranteed.</p>
-                <a class="card-link" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Open Library (opens in a new tab)">Visit site</a>
             </li>
         </ul>
     </div>
+    <script>
+        // Make whole resource card clickable (not just the right-aligned hyperlink)
+        (function () {
+            var cards = document.querySelectorAll('.resource-card');
+            cards.forEach(function (card) {
+                var link = card.querySelector('.site-link');
+                if (!link) return;
+
+                // Click anywhere on the card opens the link, except when clicking an actual anchor inside
+                card.addEventListener('click', function (e) {
+                    if (e.target && e.target.closest('a')) return;
+                    window.open(link.href, '_blank', 'noopener');
+                });
+
+                // Keyboard accessibility: Enter or Space opens the link
+                card.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.open(link.href, '_blank', 'noopener');
+                    }
+                });
+            });
+        })();
+    </script>
 </main>
 
 <footer>
