@@ -305,9 +305,9 @@
             border: 1px solid #eee;
             border-radius: 12px;
             padding: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,.04);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
             transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-            cursor: pointer; /* make whole card feel clickable */
+            cursor: pointer;
         }
 
         .resource-card:hover {
@@ -345,7 +345,7 @@
             font-size: .85rem;
             color: var(--primary-sage-dark);
             background: rgba(88, 129, 87, .08);
-            border: 1px solid rgba(88,129,87,.25);
+            border: 1px solid rgba(88, 129, 87, .25);
             padding: 2px 8px;
             border-radius: 12px;
             margin-bottom: 10px;
@@ -468,6 +468,132 @@
             border-color: white;
             color: white;
         }
+
+        /* Feedback Modal */
+        .modal {
+            padding: 0;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            background: white;
+            color: var(--text-dark);
+            max-width: 500px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .modal::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-content {
+            padding: 1.5rem;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary-sage-dark);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: var(--text-dark);
+        }
+
+        .modal-desc {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-sage);
+            box-shadow: 0 0 0 2px rgba(138, 154, 91, 0.2);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-sage);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-sage-dark);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .status-message {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .status-message.success {
+            color: var(--primary-sage-dark);
+        }
+
+        .status-message.error {
+            color: var(--accent-orange-pop);
+        }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -510,19 +636,17 @@
         </p>
     </div>
 
-    <div class="promo-block" id="promoAmazon" tabindex="0"
-         aria-label="Amazon: Lightning to USB camera adapter">
+    <div class="promo-block" id="promoAmazon" tabindex="0" aria-label="Amazon: Lightning to USB camera adapter">
         <h3 class="promo-title">Psst... Did you know?</h3>
         <div class="promo-body">
             <p class="promo-message">
                 You can connect your Kobo, a flash drive,
                 or some other dongle straight
                 to an iPhone's Lightning port using a camera adapter.
-                <a href="https://amzn.to/3XwjFuJ" target="_blank"
-                   rel="noopener">Get one from Amazon</a>.
+                <a href="https://amzn.to/3XwjFuJ" target="_blank" rel="noopener">Get one from Amazon</a>.
             </p>
-            <img class="promo-image" src="img/lightning-camera-adapter.png"
-                 alt="Lightning to USB camera adapter" width="300" height="47"/>
+            <img class="promo-image" src="img/lightning-camera-adapter.png" alt="Lightning to USB camera adapter"
+                 width="300" height="47"/>
         </div>
         <div class="promo-disclaimer">Disclosure: As an Amazon Associate I earn from qualifying
             purchases.
@@ -611,50 +735,64 @@
             <li class="resource-card" tabindex="0">
                 <div class="site-head">
                     <h4 class="site-title">Project Gutenberg</h4>
-                    <a class="site-link" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Project Gutenberg (opens in a new tab)">Visit site</a>
+                    <a class="site-link" href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer"
+                       aria-label="Visit Project Gutenberg (opens in a new tab)">Visit site</a>
                 </div>
                 <div class="site-tagline">Public-domain EPUB classics</div>
-                <p class="site-desc">70,000+ classics in tidy EPUB. Legal, timeless, and pleasantly free of pop‑ups.</p>
+                <p class="site-desc">70,000+ classics in tidy EPUB. Legal, timeless, and pleasantly free of pop‑ups.
+                </p>
             </li>
             <li class="resource-card" tabindex="0">
                 <div class="site-head">
                     <h4 class="site-title">Standard Ebooks</h4>
-                    <a class="site-link" href="https://standardebooks.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Standard Ebooks (opens in a new tab)">Visit site</a>
+                    <a class="site-link" href="https://standardebooks.org/" target="_blank"
+                       rel="noopener noreferrer" aria-label="Visit Standard Ebooks (opens in a new tab)">Visit
+                        site</a>
                 </div>
                 <div class="site-tagline">Beautifully formatted, proofread</div>
-                <p class="site-desc">Hand‑crafted editions. Like Gutenberg, but ironed, lint‑rolled, and wearing a bow tie.</p>
+                <p class="site-desc">Hand‑crafted editions. Like Gutenberg, but ironed, lint‑rolled, and wearing a
+                    bow tie.</p>
             </li>
             <li class="resource-card" tabindex="0">
                 <div class="site-head">
                     <h4 class="site-title">ManyBooks</h4>
-                    <a class="site-link" href="https://manybooks.net/" target="_blank" rel="noopener noreferrer" aria-label="Visit ManyBooks (opens in a new tab)">Visit site</a>
+                    <a class="site-link" href="https://manybooks.net/" target="_blank" rel="noopener noreferrer"
+                       aria-label="Visit ManyBooks (opens in a new tab)">Visit site</a>
                 </div>
                 <div class="site-tagline">Large free catalog</div>
-                <p class="site-desc">Public‑domain and indie titles. Some gems, some… character building. All EPUB‑friendly.</p>
+                <p class="site-desc">Public‑domain and indie titles. Some gems, some… character building. All
+                    EPUB‑friendly.</p>
             </li>
             <li class="resource-card" tabindex="0">
                 <div class="site-head">
                     <h4 class="site-title">epubBooks</h4>
-                    <a class="site-link" href="https://www.epubbooks.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit epubBooks (opens in a new tab)">Visit site</a>
+                    <a class="site-link" href="https://www.epubbooks.com/" target="_blank" rel="noopener noreferrer"
+                       aria-label="Visit epubBooks (opens in a new tab)">Visit site</a>
                 </div>
                 <div class="site-tagline">Curated free classics</div>
-                <p class="site-desc">Clean layouts, easy downloads, zero drama. Your e‑reader will send a thank‑you note.</p>
+                <p class="site-desc">Clean layouts, easy downloads, zero drama. Your e‑reader will send a thank‑you
+                    note.</p>
             </li>
             <li class="resource-card" tabindex="0">
                 <div class="site-head">
                     <h4 class="site-title">Baen Free Library</h4>
-                    <a class="site-link" href="https://www.baen.com/allbooks/category/index/id/2012" target="_blank" rel="noopener noreferrer" aria-label="Visit Baen Free Library (opens in a new tab)">Visit site</a>
+                    <a class="site-link" href="https://www.baen.com/allbooks/category/index/id/2012" target="_blank"
+                       rel="noopener noreferrer" aria-label="Visit Baen Free Library (opens in a new tab)">Visit
+                        site</a>
                 </div>
                 <div class="site-tagline">Free SF/F from the publisher</div>
-                <p class="site-desc">Spaceships, sorcery, and snark. DRM‑free EPUBs straight from the publisher. Pew pew.</p>
+                <p class="site-desc">Spaceships, sorcery, and snark. DRM‑free EPUBs straight from the publisher. Pew
+                    pew.</p>
             </li>
             <li class="resource-card" tabindex="0">
                 <div class="site-head">
                     <h4 class="site-title">Open Library</h4>
-                    <a class="site-link" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Open Library (opens in a new tab)">Visit site</a>
+                    <a class="site-link" href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer"
+                       aria-label="Visit Open Library (opens in a new tab)">Visit site</a>
                 </div>
                 <div class="site-tagline">Borrow ebooks online</div>
-                <p class="site-desc">Millions of books to borrow. Think library card, but on your couch. Procrastination guaranteed.</p>
+                <p class="site-desc">Millions of books to borrow. Think library card, but on your couch.
+                    Procrastination guaranteed.</p>
             </li>
         </ul>
     </div>
@@ -687,8 +825,9 @@
 <footer>
     <div class="footer-links">&copy;
         <script>document.write(new Date().getFullYear().toString())</script>
-        Alex Kabanov /
-        <a href="https://www.birdcorner.app" target="_blank">Bird Corner Apps</a>
+        Alex Kabanov
+        / <a href="https://www.birdcorner.app" target="_blank">Bird Corner Apps</a>
+        / <a href="#" id="feedback-link">Feedback</a>
         <br/>
         Made with ☕ and sarcasm
     </div>
@@ -1015,6 +1154,111 @@
 
         if (btnAccept) btnAccept.addEventListener('click', () => setConsent(true));
         if (btnDecline) btnDecline.addEventListener('click', () => setConsent(false));
+    })();
+</script>
+
+<dialog id="feedback-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Feedback</h2>
+            <button id="close-feedback" class="close-btn" aria-label="Close">&times;</button>
+        </div>
+        <form id="feedback-form" action="https://formspree.io/f/xnnezpzd" method="POST">
+            <p class="modal-desc">Have a suggestion or found a bug? Let us know!</p>
+            <div class="form-group">
+                <label for="feedback-email">Email (optional)</label>
+                <input type="email" id="feedback-email" name="email" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label for="feedback-message">Message</label>
+                <textarea id="feedback-message" name="message" required placeholder="Your feedback..."
+                          rows="4"></textarea>
+            </div>
+            <div class="form-actions">
+                <p id="feedback-status" class="status-message hidden"></p>
+                <button type="submit" class="submit-btn">Send Feedback</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<script>
+    // Feedback Modal Logic
+    (function () {
+        const els = {
+            feedbackModal: document.getElementById('feedback-modal'),
+            feedbackLink: document.getElementById('feedback-link'),
+            closeFeedbackBtn: document.getElementById('close-feedback'),
+            feedbackForm: document.getElementById('feedback-form'),
+            feedbackStatus: document.getElementById('feedback-status')
+        };
+
+        if (!els.feedbackModal || !els.feedbackLink) return;
+
+        // Open
+        els.feedbackLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            els.feedbackModal.showModal();
+        });
+
+        // Close
+        els.closeFeedbackBtn.addEventListener('click', () => els.feedbackModal.close());
+
+        // Close on backdrop click
+        els.feedbackModal.addEventListener('click', (e) => {
+            const rect = els.feedbackModal.getBoundingClientRect();
+            if (e.clientY < rect.top || e.clientY > rect.bottom ||
+                e.clientX < rect.left || e.clientX > rect.right) {
+                els.feedbackModal.close();
+            }
+        });
+
+        // Submit
+        els.feedbackForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = els.feedbackForm;
+            const status = els.feedbackStatus;
+            const btn = form.querySelector('button[type="submit"]');
+
+            btn.disabled = true;
+            const originalBtnText = btn.textContent;
+            btn.textContent = 'Sending...';
+            status.classList.add('hidden');
+            status.className = 'status-message hidden'; // reset classes
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {'Accept': 'application/json'}
+                });
+
+                if (response.ok) {
+                    status.textContent = 'Thanks for your feedback!';
+                    status.classList.remove('hidden');
+                    status.classList.add('success');
+                    form.reset();
+                    setTimeout(() => {
+                        els.feedbackModal.close();
+                        status.classList.add('hidden');
+                        btn.disabled = false;
+                        btn.textContent = originalBtnText;
+                    }, 2000);
+                } else {
+                    status.textContent = 'Oops! There was a problem.';
+                    status.classList.remove('hidden');
+                    status.classList.add('error');
+                    btn.disabled = false;
+                    btn.textContent = originalBtnText;
+                }
+            } catch (err) {
+                status.textContent = 'Oops! There was a problem.';
+                status.classList.remove('hidden');
+                status.classList.add('error');
+                btn.disabled = false;
+                btn.textContent = originalBtnText;
+            }
+        });
     })();
 </script>
 
