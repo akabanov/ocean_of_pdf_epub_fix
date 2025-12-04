@@ -22,3 +22,7 @@ your books display on your device.
 ## Promo
 
 - https://www.reddit.com/r/kobo/comments/r7hlrp/anyone_with_problems_adjusting_line_spacing/
+
+Didn't know about Kepub, built my own EPUB Liberator
+tool (https://epubliberator.birdcorner.app/) to remove line height, hard font
+sizes (in pixels) and text alignment. (approved by moderators).
