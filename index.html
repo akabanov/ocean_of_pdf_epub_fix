@@ -636,21 +636,32 @@
         </p>
     </div>
 
+    <div class="drop-zone" id="dropZone">
+        <div class="drop-text">Drop your messed up EPUB here</div>
+        <div class="drop-sub">or <span class="click-word">click</span> to select one</div>
+        <div class="drop-sub">(We'll handle the rest)</div>
+        <input type="file" id="fileInput" accept=".epub">
+    </div>
+
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar-shell">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="status-text" id="statusText">Spinning up the hamsters...</div>
+    </div>
+
     <div class="promo-block" id="promoAmazon" tabindex="0" aria-label="Amazon: Lightning to USB camera adapter">
         <h3 class="promo-title">Psst... Did you know?</h3>
         <div class="promo-body">
             <p class="promo-message">
-                You can connect your Kobo, a flash drive,
-                or some other dongle straight
-                to an iPhone's Lightning port using a camera adapter.
+                You can connect your Kobo, a flash drive, or some other dongle straight to an iPhone's Lightning port
+                using a camera adapter.
                 <a href="https://amzn.to/3XwjFuJ" target="_blank" rel="noopener">Get one from Amazon</a>.
             </p>
             <img class="promo-image" src="img/lightning-camera-adapter.png" alt="Lightning to USB camera adapter"
                  width="300" height="47"/>
         </div>
-        <div class="promo-disclaimer">Disclosure: As an Amazon Associate I earn from qualifying
-            purchases.
-        </div>
+        <div class="promo-disclaimer">As an Amazon Associate I earn from qualifying purchases.</div>
     </div>
     <script>
         (function () {
@@ -670,27 +681,11 @@
         })();
     </script>
 
-    <div class="drop-zone" id="dropZone">
-        <div class="drop-text">Drop your messed up EPUB here</div>
-        <div class="drop-sub">or <span class="click-word">click</span> to select one</div>
-        <div class="drop-sub">(We'll handle the rest)</div>
-        <input type="file" id="fileInput" accept=".epub">
-    </div>
-
-    <div class="progress-container" id="progressContainer">
-        <div class="progress-bar-shell">
-            <div class="progress-bar-fill" id="progressBar"></div>
-        </div>
-        <div class="status-text" id="statusText">Spinning up the hamsters...</div>
-    </div>
-
     <div class="disclaimer">
         <p>
-            Disclaimer: We are pretty good at this, but on rare occasions, the resulting file might look even uglier
+            We do the cleanup so well that on rare occasions the resulting file may look even uglier
             than the original if the publisher did something truly bizarre with their styling.
-        </p>
-        <p>
-            In this case try opting out of some fixes and try again:</p>
+            In this case, try opting out of some fixes and try again:</p>
         <div class="options-container">
             <div class="option-card">
                 <label>
